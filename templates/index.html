@@ -79,7 +79,6 @@
 </head>
 <body class="font-sans text-text h-screen flex flex-col overflow-hidden">
 
-  <!-- Header -->
   <header class="flex items-center justify-between px-6 py-3 border-b border-border flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#7c6af7,#3dd68c)">
@@ -96,10 +95,8 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main class="flex flex-1 gap-0 overflow-hidden">
 
-    <!-- Left: Editor -->
     <section class="flex flex-col flex-1 border-r border-border overflow-hidden">
       <div class="flex items-center justify-between px-4 py-2 border-b border-border flex-shrink-0">
         <div class="flex items-center gap-2 text-xs font-mono text-muted">
@@ -123,15 +120,15 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Filter evens, double them, then sum
 const result = numbers
-  .filter(n => n % 2 === 0)
-  .map(n => n * 2)
-  .reduce((acc, n) => acc + n, 0);
+  .filter(n => { return n % 2 === 0; })
+  .map(n => { return n * 2; })
+  .reduce((acc, n) => { return acc + n; }, 0);
 
 console.log("Even numbers doubled and summed:", result);
 
 // ── String operations ──────────────────────────────────────
 const words = ["hello", "world", "from", "python", "engine"];
-const shout = words.map(w => w.toUpperCase()).join(" | ");
+const shout = words.map(w => { return w.toUpperCase(); }).join(" | ");
 console.log(shout);
 
 // ── Object manipulation ────────────────────────────────────
@@ -142,8 +139,8 @@ const people = [
 ];
 
 const adults = people
-  .filter(p => p.age >= 18)
-  .map(p => p.name + " (" + p.age + ")");
+  .filter(p => { return p.age >= 18; })
+  .map(p => { return p.name + " (" + p.age + ")"; });
 
 console.log("Adults:", adults.join(", "));
 
@@ -160,7 +157,6 @@ console.log("Max:", Math.max(42, 17, 99, 3));
 </textarea>
     </section>
 
-    <!-- Right: Output -->
     <section class="flex flex-col w-5/12 overflow-hidden">
       <div class="flex items-center justify-between px-4 py-2 border-b border-border flex-shrink-0">
         <div class="flex items-center gap-2 text-xs font-mono text-muted">
@@ -174,14 +170,12 @@ console.log("Max:", Math.max(42, 17, 99, 3));
         >clear</button>
       </div>
 
-      <!-- Output terminal -->
       <div class="flex-1 overflow-y-auto bg-panel p-5">
         <div id="output-box" class="font-mono text-sm leading-7 text-green cursor">
           <span class="text-muted">// Output will appear here after you run your code.</span>
         </div>
       </div>
 
-      <!-- Run button -->
       <div class="p-4 border-t border-border flex-shrink-0">
         <button
           id="run-btn"
